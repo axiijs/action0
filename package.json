@@ -6,6 +6,9 @@
     "build": "vite build --config vite.prod.config.ts",
     "release": "release-it"
   },
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "exports": {
     ".": {
