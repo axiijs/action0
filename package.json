@@ -1,0 +1,48 @@
+{
+  "name": "action0",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "vitest",
+    "build": "vite build --config vite.prod.config.ts",
+    "release": "release-it"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
+  "peerDependencies": {
+    "data0": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "jsdom": "^25.0.0",
+    "typescript": "^5.5.4",
+    "vite-plugin-dts": "^4.1.0",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^3.0.6",
+    "vite": "^6.1.1"
+  },
+  "release-it": {
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "conventionalcommits"
+      }
+    },
+    "git": {
+      "commitMessage": "chore(release): v${version}",
+      "tagName": "v${version}",
+      "push": true,
+      "requireCleanWorkingDir": true
+    },
+    "npm": {
+      "publish": true
+    },
+    "hooks": {
+      "before:init": "npm run test && npm run build"
+    }
+  }
+}
