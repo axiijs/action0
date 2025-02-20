@@ -13,7 +13,7 @@ export default {
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'RxAction',
+      name: 'action0',
       // the proper extensions will be added
       fileName: 'index',
     },
@@ -23,7 +23,7 @@ export default {
     },
   },
   plugins: [dts({
-    tsconfigPath: resolve(__dirname, '../../tsconfig.prod.json'),
+    tsconfigPath: './tsconfig.prod.json',
     rollupTypes: true,
     include: ['src/**/*.ts'],
   })]
